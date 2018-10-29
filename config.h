@@ -3,6 +3,7 @@
 
 #define TERMINUS12 "xos4 Terminus:style=Regular:size=12"
 #define MONO10 "monospace:size=10"
+#define BROWSER qutebrowser
 
 /* appearance */
 static const unsigned int borderpx = 0; /* border pixel of windows */
@@ -14,8 +15,7 @@ static const char *fonts[] = {TERMINUS12, MONO10};
 static const char dmenufont[] = TERMINUS12;
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#444444";
-static const char col_gray3[] = "#bbbbbb";
-static const char col_gray4[] = "#eeeeee";
+static const char col_gray3[] = "#bbbbbb"; static const char col_gray4[] = "#eeeeee";
 static const char col_cyan[] = "#005577";
 static const char *colors[][3] = {
     /*               fg         bg         border   */
@@ -71,15 +71,13 @@ static const char *dmenucmd[] = {
     "dmenu_run", "-m",      dmenumon, "-fn",    dmenufont, "-nb",     col_gray1,
     "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray4, NULL};
 static const char *termcmd[] = {"st", NULL};
-static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+5%",
-                              NULL};
-static const char *downvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "-5%",
-                                NULL};
-static const char *mutevol[] = {"/usr/bin/pactl", "set-sink-mute", "0",
-                                "toggle", NULL};
+
+static const char *upvol[] = {"/usr/bin/all-pactl", "+5%", NULL};
+static const char *downvol[] = {"/usr/bin/all-pactl","-5%", NULL};
+static const char *mutevol[] = {"/usr/bin/all-pactl", "toggle", NULL};
 static const char *brightup[] = {"xbacklight", "-inc", "10", NULL};
 static const char *brightdown[] = {"xbacklight", "-dec", "10", NULL};
-static const char *firefox[] = {"firefox", NULL};
+static const char *browser[] = {"qutebrowser", NULL};
 static const char *slockcmd[] = {"slock", NULL};
 
 static Key keys[] = {
@@ -119,7 +117,7 @@ static Key keys[] = {
     {0, XK_F7, spawn, {.v = upvol}}, 
     {0, XF86XK_MonBrightnessUp, spawn, {.v = brightup}},
     {0, XF86XK_MonBrightnessDown, spawn, {.v = brightdown}},
-    {MODKEY, XK_f, spawn, {.v = firefox}},
+    {MODKEY, XK_f, spawn, {.v = browser}},
     {MODKEY | ShiftMask, XK_x, spawn, {.v = slockcmd}},
 };
 

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Change the volume for ALL outputs
+
+for SINK in `pacmd list-sinks | grep 'index:' | cut -b12-`
+do
+    if [ $1 == 'toggle' ]; then
+        pactl set-sink-mute $SINK toggle
+    else
+        pactl set-sink-volume $SINK $1
+    fi
+done
