@@ -3,7 +3,7 @@
 
 #define TERMINUS12 "xos4 Terminus:style=Regular:size=12"
 #define MONO10 "monospace:size=10"
-#define BROWSER qutebrowser
+#define BROWSER "qutebrowser"
 
 /* appearance */
 static const unsigned int borderpx = 0; /* border pixel of windows */
@@ -77,7 +77,7 @@ static const char *downvol[] = {"/usr/bin/all-pactl","-5%", NULL};
 static const char *mutevol[] = {"/usr/bin/all-pactl", "toggle", NULL};
 static const char *brightup[] = {"xbacklight", "-inc", "10", NULL};
 static const char *brightdown[] = {"xbacklight", "-dec", "10", NULL};
-static const char *browser[] = {"qutebrowser", NULL};
+static const char *browser[] = {BROWSER, NULL};
 static const char *slockcmd[] = {"slock", NULL};
 
 static Key keys[] = {
