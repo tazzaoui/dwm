@@ -35,6 +35,7 @@ static const Rule rules[] = {
        monitor */
     {"Thunderbird", NULL, NULL, 1, 0, -1},
     {"Slack", NULL, NULL, 1, 0, -1},
+    {"mpv", NULL, NULL, 0, 1},
 };
 
 /* layout(s) */
