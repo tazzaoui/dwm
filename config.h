@@ -1,12 +1,13 @@
 #include <X11/XF86keysym.h>
-#include "gaplessgrid.c" // too lazy to compile & link
+#include "gaplessgrid.c" // cringe 
 
 #define TERMINUS12 "xos4 Terminus:style=Regular:size=12"
 #define MONO10 "monospace:size=10"
-#define BROWSER "qutebrowser"
+#define BROWSER "firefox"
 
 /* appearance */
 static const unsigned int borderpx = 0; /* border pixel of windows */
+static const unsigned int gappx = 6;    /* gap pixel between windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
@@ -15,7 +16,8 @@ static const char *fonts[] = {TERMINUS12, MONO10};
 static const char dmenufont[] = TERMINUS12;
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#444444";
-static const char col_gray3[] = "#bbbbbb"; static const char col_gray4[] = "#eeeeee";
+static const char col_gray3[] = "#bbbbbb";
+static const char col_gray4[] = "#eeeeee";
 static const char col_cyan[] = "#005577";
 static const char *colors[][3] = {
     /*               fg         bg         border   */
@@ -41,11 +43,12 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster = 1;    /* number of clients in master area */
-static const int resizehints = 0; /* 1 means respect size hints in tiled resizals */
+static const int resizehints =
+    0; /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    {"###", gaplessgrid },
+    {"###", gaplessgrid},
     {"[]=", tile}, /* first entry is default */
     {"><>", NULL}, /* no layout function means floating behavior */
     {"[M]", monocle},
@@ -74,7 +77,7 @@ static const char *dmenucmd[] = {
 static const char *termcmd[] = {"st", NULL};
 
 static const char *upvol[] = {"/usr/bin/all-pactl", "+5%", NULL};
-static const char *downvol[] = {"/usr/bin/all-pactl","-5%", NULL};
+static const char *downvol[] = {"/usr/bin/all-pactl", "-5%", NULL};
 static const char *mutevol[] = {"/usr/bin/all-pactl", "toggle", NULL};
 static const char *brightup[] = {"xbacklight", "-inc", "10", NULL};
 static const char *brightdown[] = {"xbacklight", "-dec", "10", NULL};
@@ -115,7 +118,7 @@ static Key keys[] = {
     {0, XF86XK_AudioRaiseVolume, spawn, {.v = upvol}},
     {0, XK_F6, spawn, {.v = downvol}},
     {0, XK_F5, spawn, {.v = mutevol}},
-    {0, XK_F7, spawn, {.v = upvol}}, 
+    {0, XK_F7, spawn, {.v = upvol}},
     {0, XF86XK_MonBrightnessUp, spawn, {.v = brightup}},
     {0, XF86XK_MonBrightnessDown, spawn, {.v = brightdown}},
     {MODKEY, XK_f, spawn, {.v = browser}},
