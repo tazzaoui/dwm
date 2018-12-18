@@ -45,6 +45,7 @@ install: all
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 755 all-pactl
 	cp -f all-pactl /usr/bin 
+	cp -f screenshot /usr/bin
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
