@@ -1,2 +1,2 @@
 #!/bin/bash
-scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f /home/taha/Pictures/Screenshots/$f && notify-send "Scrot" "Captured Screenshot $f\!"'
+scrot '%Y-%m-%d_$wx$h.png' -ue 'mv $f ~/Pictures/Screenshots/' && notify-send '📷 Scrot' 'Captured Screenshot!'

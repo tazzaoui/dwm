@@ -73,8 +73,7 @@ static const char *dmenucmd[] = {"dmenu_run", "-m",      dmenumon,  "-fn",     d
                                  "-nb",       col_gray1, "-nf",     col_gray3, "-sb",
                                  col_cyan,    "-sf",     col_gray4, NULL};
 static const char *termcmd[] = {"st", NULL};
-
-static const char *sshot_cmd[] = {"screenshot", NULL};
+static const char *screenshotcmd[] = {"screenshot", NULL};
 static const char *upvol[] = {"/usr/bin/all-pactl", "+5%", NULL};
 static const char *downvol[] = {"/usr/bin/all-pactl", "-5%", NULL};
 static const char *mutevol[] = {"/usr/bin/all-pactl", "toggle", NULL};
@@ -122,7 +121,7 @@ static Key keys[] = {
     {0, XF86XK_MonBrightnessDown, spawn, {.v = brightdown}},
     {MODKEY, XK_f, spawn, {.v = browser}},
     {MODKEY | ShiftMask, XK_x, spawn, {.v = slockcmd}},
-    {MODKEY, XK_s, spawn, {.v = sshot_cmd}},
+    {MODKEY, XK_s, spawn, {.v = screenshotcmd}},
 };
 
 /* button definitions */
